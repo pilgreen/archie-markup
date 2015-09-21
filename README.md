@@ -20,4 +20,4 @@ A Polymer 1.0 component for parsing ArchieML content.
 <archie-ml content="[[externalContent]] value="{{aml}}"></archie-ml>
 ```
 
-There are no additional events, but the `value` attribute is read-only and set to notify.
+There are no additional events, but the `value` attribute is set to notify.
