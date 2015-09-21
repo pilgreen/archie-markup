@@ -1,0 +1,27 @@
+{
+  "name": "archie-ml",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pilgreen/archie-ml",
+  "authors": [
+    "jaypilgreen@gmail.com"
+  ],
+  "description": "A Polymer 1.0 component for parsing ArchieML content.",
+  "main": "archie-ml.html",
+  "keywords": [
+    "Polymer",
+    "ArchieML",
+    "web-components"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "archieml-js": "newsdev/archieml-js#~0.3.1",
+    "polymer": "polymer/polymer#~1.1.3"
+  }
+}
