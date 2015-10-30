@@ -1,7 +1,7 @@
-# archie-ml
+# archieml-element
 A Polymer 1.0 component for parsing ArchieML content.
 
-`archie-ml` parses [ArchieML](http://archieml.org/) content and notifies Polymer of a change to the value. You can pass initial data inside the element or use the `content` attribute to parse external data from an ajax call (or whatever you like).
+`archieml-element` parses [ArchieML](http://archieml.org/) content and notifies Polymer of a change to the value. You can pass initial data inside the element or use the `content` attribute to parse external data from an ajax call (or whatever you like).
 
 ### inline example
 
