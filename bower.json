@@ -5,7 +5,7 @@
     "jaypilgreen@gmail.com"
   ],
   "description": "A Polymer 1.0 component for parsing ArchieML content.",
-  "main": "archie-ml.html",
+  "main": "archieml-element.html",
   "keywords": [
     "Polymer",
     "ArchieML",
