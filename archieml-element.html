@@ -45,12 +45,12 @@ This code may only be used under the BSD style license found at http://polymer.g
       }
     },
 
-    attached: {
+    attached: function() {
       this._attached = true;
       this.load();
     },
 
-    detached: {
+    detached: function() {
       this._attached = false;
     },
 
