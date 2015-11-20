@@ -2,47 +2,66 @@
 Archie ML parser
 created 2015-09-21
 © Copyright 2015 The Kansas City Star. All Rights Reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 -->
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="archieml-import.html">
 
-<dom-module id="archie-ml">
+<dom-module id="archieml-element">
   <template>
-    <style>
-      :host {
-        display: none;
-      }
-    </style>
-
-    <div id="content"><content></content></div>
+    <content select=".archieml-html"></content>
+    <div id="content" hidden></div>
   </template>
 </dom-module>
 
 <script>
   Polymer({
-    is: 'archie-ml',
+    is: 'archieml-element',
 
     properties: {
-      content: {
+      archieml: {
         type: String,
-        observer: 'load'
-      },
-
-      value: {
-        type: Object,
-        notify: true
+        observer: 'render'
       }
-    },
-
-    load: function(content) {
-      this.set('value', archieml.load(content));
     },
 
     ready: function() {
-      if(!this.content && this.$.content.textContent.length > 0) {
-        this.load(this.$.content.textContent);
+      if(!this.archieml) {
+        var archiemlElement = Polymer.dom(this).querySelector('[type^="text/archieml"]');
+        if(archiemlElement) {
+          this.archieml = archiemlElement.textContent;
+        }
       }
+    },
+
+    attached: {
+      this._attached = true;
+      this._outputElement = this.outputElement;
+      this.render();
+    },
+
+    detached: {
+      this._attached = false;
+    },
+
+    get outputElement () {
+      var child = Polymer.dom(this).queryDistributedElements('archieml-html')[0];
+
+      if(child) return child;
+
+      this.toggleAttribute('hidden', false, this.$.content);
+      return this.$.content;
+    },
+
+    render: function() {
+      if(!this._attached) return;
+      if(!this.archieml) {
+        Polymer.dom(this._outputElement).innerHTML = '';
+        return;
+      }
+
+      Polymer.dom(this._outputElement).innerHTML = archieml.load(this.archieml);
     }
   });
 </script>
