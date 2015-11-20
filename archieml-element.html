@@ -10,8 +10,13 @@ This code may only be used under the BSD style license found at http://polymer.g
 
 <dom-module id="archieml-element">
   <template>
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+
     <content select=".archieml-html"></content>
-    <div id="content" hidden></div>
   </template>
 </dom-module>
 
@@ -22,7 +27,12 @@ This code may only be used under the BSD style license found at http://polymer.g
     properties: {
       archieml: {
         type: String,
-        observer: 'render'
+        observer: 'load'
+      },
+
+      value: {
+        type: Object,
+        notify: true
       }
     },
 
@@ -37,31 +47,18 @@ This code may only be used under the BSD style license found at http://polymer.g
 
     attached: {
       this._attached = true;
-      this._outputElement = this.outputElement;
-      this.render();
+      this.load();
     },
 
     detached: {
       this._attached = false;
     },
 
-    get outputElement () {
-      var child = Polymer.dom(this).queryDistributedElements('archieml-html')[0];
-
-      if(child) return child;
-
-      this.toggleAttribute('hidden', false, this.$.content);
-      return this.$.content;
-    },
-
-    render: function() {
+    load: function() {
       if(!this._attached) return;
-      if(!this.archieml) {
-        Polymer.dom(this._outputElement).innerHTML = '';
-        return;
-      }
+      if(!this.archieml) return;
 
-      Polymer.dom(this._outputElement).innerHTML = archieml.load(this.archieml);
+      this.value = archieml.load(this.archieml);
     }
   });
 </script>
