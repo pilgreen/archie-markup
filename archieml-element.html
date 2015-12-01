@@ -16,7 +16,8 @@ This code may only be used under the BSD style license found at http://polymer.g
       }
     </style>
 
-    <content select=".archieml-html"></content>
+    <iron-ajax auto url="[[url]]" last-response="{{archieml}}" handle-as="text"></iron-ajax>
+    <content></content>
   </template>
 </dom-module>
 
@@ -25,6 +26,10 @@ This code may only be used under the BSD style license found at http://polymer.g
     is: 'archieml-element',
 
     properties: {
+      url: {
+        type: String
+      },
+
       archieml: {
         type: String,
         observer: 'load'

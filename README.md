@@ -5,15 +5,15 @@ Parsing element for the [archieml](http://archieml.org/) library. Borrows from P
 `<marked-element>`.
 
 `archieml-element` parses ArchieML content and stores it in its `value` property. This property is
-set to notify Polymer of changes. There are a couple of ways you can pass ArchieML content.
+set to notify Polymer of changes. There are a few of ways you can pass ArchieML content.
 
-The ArchieML source can be specified with the archieml attribute:
+#### Archieml content can be passed in using an attribute
 
 ```
 <archieml-element archieml="[[externalContent]]" value="{{aml}}"></archieml-element>
 ```
 
-You can also provide it using a `<script type="text/archieml">` element child:
+#### Archieml content can be added as a `<script type="text/archieml">` element child:
 
 ```
 <archieml-element value="{{aml}}">
@@ -26,4 +26,10 @@ You can also provide it using a `<script type="text/archieml">` element child:
 </archieml-element>
 ```
 
-**Note using the script method is static and content will not update if the content is changed**
+**Note using the script method is static and the value will not update if the content is changed**
+
+#### An `iron-ajax` element is included and you can make calls with a url attribute
+
+```
+<archieml-element url="[[urlToDatafile]]" value="{{aml}}"></archieml-element>
+```

@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "archieml-js": "newsdev/archieml-js#~0.3.1",
-    "polymer": "polymer/polymer#1.x"
+    "polymer": "polymer/polymer#1.x",
+    "iron-ajax": "polymerelements/iron-ajax#1.x"
   }
 }
