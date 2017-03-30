@@ -1,0 +1,58 @@
+<!--
+Archie ML parser
+created 2015-09-21
+updated 2017-03-30
+© Copyright 2015 The Kansas City Star. All Rights Reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="./archie-import.html">
+
+<dom-module id="archie-markup">
+  <template>
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+
+    <iron-ajax auto url="[[url]]" last-response="{{markup}}" handle-as="text"></iron-ajax>
+  </template>
+
+  <script>
+    class ArchieMarkup extends Polymer.Element {
+      static get is() { return 'archie-markup' }
+
+      static get properties() {
+        return {
+          url: String,
+
+          markup: {
+            type: String,
+            observer: '_markupChanged'
+          },
+
+          value: {
+            type: Object,
+            notify: true
+          }
+        }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        if(this.textContent.length > 0) {
+          this.markup = this.textContent;
+        } 
+      }
+
+      _markupChanged(markup) {
+        this.value = archieml.load(markup);
+      }
+    }
+
+    window.customElements.define(ArchieMarkup.is, ArchieMarkup);
+  </script>
+</dom-module>
