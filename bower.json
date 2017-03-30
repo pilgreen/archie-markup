@@ -4,7 +4,7 @@
   "authors": [
     "jaypilgreen@gmail.com"
   ],
-  "description": "A Polymer 1.0 component for parsing ArchieML content.",
+  "description": "A Polymer component for parsing ArchieML content.",
   "main": "archieml-element.html",
   "keywords": [
     "Polymer",
@@ -20,8 +20,8 @@
     "tests"
   ],
   "dependencies": {
-    "archieml-js": "newsdev/archieml-js#~0.3.1",
-    "polymer": "polymer/polymer#1.x",
-    "iron-ajax": "polymerelements/iron-ajax#1.x"
+    "archieml-js": "newsdev/archieml-js#0.4.2",
+    "polymer": "polymer/polymer#2.0.0-rc.3",
+    "iron-ajax": "polymerelements/iron-ajax#2.0-preview"
   }
 }
