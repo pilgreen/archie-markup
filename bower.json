@@ -1,11 +1,11 @@
 {
-  "name": "archieml-element",
-  "homepage": "https://github.com/pilgreen/archieml-element",
+  "name": "archie-markup",
+  "homepage": "https://github.com/pilgreen/archie-markup",
   "authors": [
     "jaypilgreen@gmail.com"
   ],
   "description": "A Polymer component for parsing ArchieML content.",
-  "main": "archieml-element.html",
+  "main": "archie-markup.html",
   "keywords": [
     "Polymer",
     "ArchieML",
